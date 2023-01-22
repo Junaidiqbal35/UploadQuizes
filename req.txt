@@ -1,0 +1,9 @@
+# Hi - I need an exam website where we post a question and multiple students can upload files and folders.
+#
+# I need the application to be in a container
+#
+# Simple UI.
+#
+# users: maybe showing the question and upload button. (folder with files)
+#
+# The admin: page shows submissions and add grades (folder with files)
