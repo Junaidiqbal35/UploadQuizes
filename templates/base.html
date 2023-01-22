@@ -21,10 +21,11 @@
     {% block scripts %}
     {% endblock scripts %}
 
-    <title>quiz app| {% block title %}{% endblock title %}</title>
+    <title>quiz app  {% block title %}{% endblock title %}</title>
   </head>
   <body>
     <div class="container mt-3">
+        {% include 'partials/_navbar.html' %}
         {% block content %}
         {% endblock content %}
     </div>

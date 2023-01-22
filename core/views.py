@@ -1,9 +1,17 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 
-from .forms import SubmitAssignmentsForm
+from .forms import SubmitAssignmentsForm, CreateUserForm
 from .models import UploadQuiz, ExamResult, ExamType
+
+
+class SignUpView(CreateView):
+    form_class = CreateUserForm
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
 
 
 class ExamListView(ListView):
@@ -31,11 +39,20 @@ class SubmitAssignment(LoginRequiredMixin, CreateView):
     template_name = 'exam/submit_exam.html'
 
     def form_valid(self, form):
-        exam_obj = UploadQuiz.objects.get(id=self.kwargs['id'])
-        form.exam = exam_obj
+        exam_obj = UploadQuiz.objects.get(id=self.kwargs['pk'])
+        form.instance.exam = exam_obj
         form.instance.submit_by = self.request.user
         form.save()
         return redirect('exam-detail', exam_obj.id)
 
     def form_invalid(self, form):
         print(form.errors)
+
+
+class StudentSubmitAssignmentView(LoginRequiredMixin, ListView):
+    model = ExamResult
+    template_name = 'user_submitted_assignment.html'
+    context_object_name = 'user_assignments'
+
+    def get_queryset(self):
+        return self.model.objects.filter(submit_by__email=self.request.user.email)

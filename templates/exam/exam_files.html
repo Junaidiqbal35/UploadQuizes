@@ -2,20 +2,36 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-        {{exam_detail.exam_description}}
-        <a href="{{exam_detail.exam_folder.url}}"> Exam Files </a>
-        {{exam_detail.total_time}}
-        {{exam_detail.total_marks}}
+    <div class="container">
+        <div class="jumbotron">
+             <p class="lead">{{exam_detail.exam_description}}</p>
+             <p class="lead">{{exam_detail.created_at}}</p>
+              <p class="lead">Total Time  </p>{{exam_detail.total_time}}
+               <p class="lead"> Total Marks </p>{{exam_detail.total_marks}}
+                <div class="row">
+                    <div class="col-md-4">
+                             <a class="lead" href="{{exam_detail.exam_folder.url}}"> Download Exam Files  </a>
+                             <p class="lead"> Submit your exam in zip folder with clear file name of every file.</p>
+                    </div>
+                </div>
+
+        </div>
+
+
+    </div>
+
 
 
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <form action="{% url 'submit_exam' exam_detail.id %}" method="post">
+                     {% if  request.user.is_authenticated and request.user not in request.user.exam_result.all %}
+                    <form action="{% url 'submit_exam' exam_detail.id %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                                   {{ submit_assignment | crispy  }}
                         <button type="submit" class="btn btn-dark"> Submit </button>
                     </form>
+                    {% endif %}
 
                 </div>
             </div>

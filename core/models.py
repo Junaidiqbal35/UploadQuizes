@@ -30,16 +30,18 @@ class UploadQuiz(models.Model):
 
     total_time = models.CharField(max_length=255, default='1 hour')
     total_marks = models.PositiveIntegerField()
+    created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.exam_type.title
 
 
 class ExamResult(models.Model):
-    exam = models.ForeignKey(UploadQuiz, on_delete=models.CASCADE)
+    exam = models.ForeignKey(UploadQuiz, on_delete=models.CASCADE, related_name='exam_result')
     submit_files = models.FileField(upload_to='submitFiles')
     submit_by = models.ForeignKey(User, on_delete=models.CASCADE)
     grade = models.PositiveIntegerField(null=True)
+    submit_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.submit_by
+        return self.submit_by.username
