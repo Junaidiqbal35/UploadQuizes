@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block scripts %}
+      {% block title %}
+          <title> Landing Page </title>
+    {% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/exam_type.css' %}">
 
+{% endblock scripts %}
 {% block content %}
     <div class="container">
-        <div class="row">
+        <div class="row c1">
              {% for exam in exam_type %}
-            <div class="col-md-4">
+            <div class="col-md-2">
                             <a href="{% url 'exam-detail' exam.pk %}">
-                            <img src="{{ exam.image_type.url }}" class="img-responsive">{{exam.title}} </a>
+                            <img src="{{ exam.image_type.url }}" class="img-fluid">{{exam.title}} </a>
 
 
             </div>

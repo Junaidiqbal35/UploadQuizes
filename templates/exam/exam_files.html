@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_filters %}
-
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/exam_files.css' %}">
+{% endblock scripts %}
 {% block content %}
     <div class="container">
         <div class="jumbotron">
-             <p class="lead">{{exam_detail.exam_description}}</p>
-             <p class="lead">{{exam_detail.created_at}}</p>
-              <p class="lead">Total Time  </p>{{exam_detail.total_time}}
-               <p class="lead"> Total Marks </p>{{exam_detail.total_marks}}
+         
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6 border-right">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="lead">{{exam_detail.exam_description}}</p>
+                                <p class="lead">{{exam_detail.created_at}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="lead">Total Time  </p>{{exam_detail.total_time}}
+                                <p class="lead mt-2"> Total Marks </p>{{exam_detail.total_marks}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                              <a class="lead" href="{{exam_detail.exam_folder.url}}"> Download Exam Files  </a>
                              <p class="lead"> Submit your exam in zip folder with clear file name of every file.</p>
                     </div>

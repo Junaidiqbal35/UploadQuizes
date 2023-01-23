@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_filters %}
-
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/user_sub.css' %}">
+{% endblock scripts %}
 {% block content %}
     <div class="container">
         <div class="row">
             {% for user_assignment in user_assignments %}
-                <a href="{% url 'exam-detail' user_assignment.exam.id %}">    <p class="lead">{{ user_assignment.exam.exam_type }} </p></a>
-                <p class="lead"> {{ user_assignment.submit_date }} </p>
+                <a href="{% url 'exam-detail' user_assignment.exam.id %}">    
+                <p class="lead ">{{ user_assignment.exam.exam_type }} </p></a>
+                <p class="lead mx-3"> {{ user_assignment.submit_date }} </p>
                 {%  if user_assignment.grade %}
                     {{ user_assignment.grade }}
                 {% else %}
