@@ -11,9 +11,9 @@
     <div class="container">
         <div class="row c1">
              {% for exam in exam_type %}
-            <div class="col-md-2">
+            <div class="col-md-3">
                             <a href="{% url 'exam-detail' exam.pk %}">
-                            <img src="{{ exam.image_type.url }}" class="img-fluid text-center">{{exam.title}} </a>
+                            <img src="{{ exam.image_type.url }}" class="img-fluid"><p class="text-center">{{exam.title}}</p></a>
 
             </div>
                     {% endfor %}

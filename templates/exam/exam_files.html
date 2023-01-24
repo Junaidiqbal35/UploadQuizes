@@ -16,20 +16,20 @@
         <div class="jumbotron">
          
                 <div class="row">
-                    <div class="col-md-6 border-right">
+                    <div class="col-md-8 border-right">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <p class="lead">{{exam_detail.exam_description}}</p>
                                 <p class="lead">{{exam_detail.created_at}}</p>
                                 <p class="lead">Uploaded By: </p>Junaid Iqbal
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <p class="lead">Total Time:  </p>{{exam_detail.total_time}}
                                 <p class="lead mt-3"> Total Marks: </p>{{exam_detail.total_marks}}
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                              <a class="lead" id="link" href="{{exam_detail.exam_folder.url}}"> Download Exam Files  </a>
                              <p class="lead"> Submit your exam in zip folder with clear file name of every file.</p>
                     </div>

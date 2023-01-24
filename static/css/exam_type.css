@@ -14,19 +14,27 @@ body {
     border-radius: 3px;
     border: 1px solid #022457;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    background-color: #AFCFFF;
+    
 }
 
 a {
+    
     color: black;
 }
 
 a:hover {
     text-decoration: none;
+    
 }
 
 img {
     margin-bottom: 15px;
     border-radius: 5px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 200px!important;
+    width: 100%;
+}
+p{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #022457;
 }

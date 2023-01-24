@@ -8,18 +8,22 @@
     <div class="container">
         <div class="row">
             {% for user_assignment in user_assignments %}
+            <div class="col-md-3">
                 <a href="{% url 'exam-detail' user_assignment.exam.id %}">    
-                <p class="lead ">{{ user_assignment.exam.exam_type }} </p></a>
-                <p class="lead mx-3"> {{ user_assignment.submit_date }} </p>
-                {%  if user_assignment.grade %}
-                    {{ user_assignment.grade }}
-                {% else %}
-                    <p class="lead"> Grade not uploaded yet.  </p>
-                {% endif %}
-
-            {% empty %}
-                <p class="lead"> No Exam Submit yet.</p>
-            {% endfor %}
+                    <img src="{{ user_assignment.exam.exam_type.image_type.url }}" class="img-responsive">
+                    <p class="lead ">{{ user_assignment.exam.exam_type }} </p></a>
+                    <p class="lead"> {{ user_assignment.submit_date }} </p>
+                    {%  if user_assignment.grade %}
+                        <p class="text-center">Marks: {{ user_assignment.grade }}</p>
+                    {% else %}
+                        <p class="lead"> Grade not uploaded yet.  </p>
+                    {% endif %}
+    
+                {% empty %}
+                    <p class="lead"> No Exam Submit yet.</p>
+                {% endfor %}
+            </div>
+      
         </div>
     </div>
 
