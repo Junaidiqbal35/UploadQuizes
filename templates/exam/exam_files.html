@@ -39,12 +39,12 @@
     </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-7 mb-5">
                      {% if  request.user.is_authenticated %}
                     <form action="{% url 'submit_exam' exam_detail.id %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                                   {{ submit_assignment | crispy  }}
-                        <button type="submit" class="btn btn-dark"> Submit </button>
+                        <button type="submit" id="sbtn" class="btn btn-dark"> Submit </button>
                     </form>
                     {% endif %}
 
