@@ -21,7 +21,7 @@ class ExamListView(ListView):
     context_object_name = 'exam_type'
 
 
-class ExamFilesDetailView(DetailView):
+class ExamFilesDetailView(LoginRequiredMixin, DetailView):
     model = UploadQuiz
     template_name = 'exam/exam_files.html'
 
