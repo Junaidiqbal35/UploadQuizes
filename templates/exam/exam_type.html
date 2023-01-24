@@ -13,8 +13,7 @@
              {% for exam in exam_type %}
             <div class="col-md-2">
                             <a href="{% url 'exam-detail' exam.pk %}">
-                            <img src="{{ exam.image_type.url }}" class="img-fluid">{{exam.title}} </a>
-
+                            <img src="{{ exam.image_type.url }}" class="img-fluid text-center">{{exam.title}} </a>
 
             </div>
                     {% endfor %}
