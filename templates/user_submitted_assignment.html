@@ -8,10 +8,10 @@
     <div class="container">
         <div class="row">
             {% for user_assignment in user_assignments %}
-            <div class="col-md-4">
+            <div class="col-md-6 d-flex justify-content-between">
                 <a href="{% url 'exam-detail' user_assignment.exam.id %}">    
                     <img src="{{ user_assignment.exam.exam_type.image_type.url }}" class="img-fluid">
-                    <p class="lead ">{{ user_assignment.exam.exam_type }} </p></a>
+                    <p class="lead ">{{ user_assignment.exam.exam_type }} </p>
                     <p class="lead"> {{ user_assignment.submit_date }} </p>
                     {%  if user_assignment.grade %}
                         <p class="text-center">Your Grade: {{ user_assignment.grade }}</p>
@@ -20,7 +20,7 @@
                     {% endif %}
     
                 {% empty %}
-                    <p class="lead"> No Exam Submit yet.</p>
+                    <p class="lead"> No Exam Submit yet.</p></a>
                 {% endfor %}
             </div>
       
