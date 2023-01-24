@@ -6,6 +6,13 @@
 {% endblock scripts %}
 {% block content %}
     <div class="container">
+        <div class="jumbotron" id="banner">
+            <div class="col-md-12">
+                <p>Best Assignments in just <span>20$</span></p>
+                <button class="btn btn-primary">Get Now!</button>
+            </div>
+        
+    </div>
         <div class="jumbotron">
          
                 <div class="row">
@@ -14,30 +21,26 @@
                             <div class="col-md-6">
                                 <p class="lead">{{exam_detail.exam_description}}</p>
                                 <p class="lead">{{exam_detail.created_at}}</p>
+                                <p class="lead">Uploaded By: </p>Junaid Iqbal
                             </div>
                             <div class="col-md-6">
-                                <p class="lead">Total Time  </p>{{exam_detail.total_time}}
-                                <p class="lead mt-2"> Total Marks </p>{{exam_detail.total_marks}}
+                                <p class="lead">Total Time:  </p>{{exam_detail.total_time}}
+                                <p class="lead mt-3"> Total Marks: </p>{{exam_detail.total_marks}}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                             <a class="lead" href="{{exam_detail.exam_folder.url}}"> Download Exam Files  </a>
+                             <a class="lead" id="link" href="{{exam_detail.exam_folder.url}}"> Download Exam Files  </a>
                              <p class="lead"> Submit your exam in zip folder with clear file name of every file.</p>
                     </div>
                 </div>
 
         </div>
-
-
     </div>
-
-
-
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                     {% if  request.user.is_authenticated and request.user not in request.user.exam_result.all %}
+                     {% if  request.user.is_authenticated %}
                     <form action="{% url 'submit_exam' exam_detail.id %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                                   {{ submit_assignment | crispy  }}

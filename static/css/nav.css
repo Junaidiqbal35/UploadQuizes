@@ -10,3 +10,10 @@
 .navbar-brand{
     color: #4D88DF;
 }
+button{
+    background-color: #4D88DF!important;
+}
+.navbar-toggler-icon{
+    color: #022457!important;
+    background-color: #022457;
+}

@@ -16,15 +16,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <!-- custom css & js-->
-    <link rel="stylesheet" href={% static 'style.css' %}>
+    <!-- <link rel="stylesheet" href={% static 'style.css' %}> -->
 
     {% block scripts %}
     {% endblock scripts %}
 
-    <title>quiz app  {% block title %}{% endblock title %}</title>
+    <title>Quiz App  {% block title %}{% endblock title %}</title>
   </head>
   <body>
-    <div class="container mt-3">
+    <div >
         {% include 'partials/_navbar.html' %}
         {% block content %}
         {% endblock content %}

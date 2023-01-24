@@ -7,10 +7,38 @@ body {
     font-family: 'Raleway', sans-serif;
 
 }
+#banner{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 100px;
+    color: white;
+    background-color: #022457;
+}
+#banner span{
+    color: yellow;
+    font-size: 1.3rem;
+    
+}
 .jumbotron{
     margin-top: 20px;
     background-color: #AFCFFF;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #022457;
+}
+#link{
+    color: white!important;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+#link:hover{
+    color: #022457!important;
 }
 .lead{
     color: #022457;
+}
+.btn{
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #022457!important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 }
